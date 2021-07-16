@@ -9,7 +9,7 @@
   --light-gray-for-text: #7c7a7a;
   /* padding general */
   --padding-origin: 13.5rem;
-  --padding-max-1039: 12.7rem;
+  --padding-max-1039: 9.5rem;
   --padding-max-1023: 9rem;
   --padding-max-414: 5rem;
   --padding-max-375: 4rem;
@@ -176,6 +176,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  z-index: 10;
 }
 .cv-introduce-hello {
   text-transform: uppercase;
@@ -730,6 +731,9 @@ body {
   font-weight: 400;
   color: var(--ruby-color);
 }
+.cv footer span {
+  max-width: 65%;
+}
 .cv footer .cv-mode {
   display: flex;
   align-items: center;
@@ -741,22 +745,102 @@ body {
   height: 2rem;
 }
 
+.effect-dots {
+  width: 17rem;
+  height: 18.8rem;
+  display: flex;
+  flex-wrap: wrap;
+  position: absolute;
+  right: 10%;
+  top: 14rem;
+}
+.effect-dots div {
+  background-color: white;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  margin-left: 29px;
+}
+.effect-lines {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translateY(140%);
+}
+.effect-dots-pane {
+  position: absolute;
+  top: 0;
+  right: 5rem;
+  transform: translateY(670%);
+}
+.effect-dots-pane-2 {
+  position: absolute;
+  left: 5rem;
+  transform: translateY(-98.7rem);
+}
+.effect-triangle {
+  position: absolute;
+  top: 0;
+  right: 5rem;
+  transform: translateY(165.9rem);
+}
+.effect-dots-circle {
+  position: absolute;
+  right: 5rem;
+  transform: translateY(-65rem);
+}
+
 @media screen and (max-width: 1039px) and (min-width: 1024px) {
   html,
 body {
     font-size: 61%;
   }
 
-  .cv-header .navbar {
+  .cv-header .header__left ul.navbar {
     justify-content: space-evenly;
+    margin-right: 2.5rem;
   }
-  .cv-header .navbar li {
+  .cv-header .header__left ul.navbar li {
     margin-bottom: 0.5rem;
+    margin-left: 2.8rem;
+  }
+
+  .cv-introduce__right .circle {
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+
+  .cv-works-list {
+    margin-left: -7rem;
+  }
+  .cv-works-list .cv-works-item {
+    margin-left: 7rem;
   }
 
   .cv-testimonial__left {
     padding: 0 5rem 0 0;
     justify-content: center;
+  }
+
+  .effect-dots {
+    width: 18rem;
+    height: 18.8rem;
+    top: 11rem;
+    transform: scale(0.9);
+  }
+  .effect-lines {
+    transform: translate(2rem, 140%) scale(0.8);
+  }
+  .effect-dots-pane {
+    transform: translateY(670%) scale(0.8);
+  }
+  .effect-dots-pane-2 {
+    transform: translateY(-101rem) scale(0.8);
+  }
+  .effect-triangle {
+    transform: translateY(165.9rem) scale(0.8);
+  }
+  .effect-dots-circle {
+    transform: translateY(-65rem) scale(0.8);
   }
 }
 @media screen and (max-width: 1023px) {
@@ -802,7 +886,7 @@ div.effect-dots {
 
   .cv-expertises-background-exp-content__project,
 .cv-expertises-background-edu-content__school {
-    max-width: 40rem;
+    max-width: 26rem;
   }
 
   .cv-works-list {
@@ -828,10 +912,35 @@ div.effect-dots {
     width: 3rem;
     height: 3rem;
   }
+
+  .effect-dots {
+    width: 18rem;
+    height: 18.8rem;
+    top: 11rem;
+    transform: scale(0.9);
+  }
+  .effect-lines {
+    transform: translate(2rem, 111%) scale(0.8);
+  }
+  .effect-dots-pane {
+    transform: translateY(670%) scale(0.8);
+  }
+  .effect-dots-pane-2 {
+    transform: translateY(-108rem) scale(0.8);
+  }
+  .effect-triangle {
+    transform: translateY(157.9rem) scale(0.8);
+  }
+  .effect-dots-circle {
+    transform: translateY(-65rem) scale(0.8);
+  }
 }
 @media screen and (max-width: 414px) {
   .cv-header .header__left .navbar {
     margin-left: 16rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
   }
 
   .cv-aboutme__right {
@@ -885,59 +994,27 @@ div.effect-dots {
   .cv-contact-card__right {
     margin-top: 5rem;
   }
+
+  .effect-lines {
+    transform: translate(3rem, 150%) scale(0.7);
+  }
+  .effect-dots-pane {
+    transform: translate(30%, 693%) scale(0.7);
+  }
+  .effect-triangle {
+    transform: translate(25%, 200rem) scale(0.7);
+  }
+  .effect-dots-pane-2 {
+    transform: translate(-18%, -147.5rem) scale(0.7);
+  }
+  .effect-dots-circle {
+    transform: translate(30%, -87rem) scale(0.7);
+  }
 }
 @media screen and (max-width: 375px) {
   .cv-header .header__left .navbar {
     margin-left: 12rem;
   }
-}
-.effect div,
-.effect img {
-  z-index: -1;
-}
-.effect-dots {
-  position: absolute;
-  width: 17rem;
-  height: 18.8rem;
-  display: flex;
-  flex-wrap: wrap;
-  right: 10%;
-  top: 14rem;
-}
-.effect-dots div {
-  background-color: white;
-  width: 0.5rem;
-  height: 0.5rem;
-  border-radius: 50%;
-  margin-left: 29px;
-}
-.effect-lines {
-  position: absolute;
-  top: 0;
-  right: 0;
-  transform: translateY(140%);
-}
-.effect-dots-pane {
-  position: absolute;
-  top: 0;
-  right: 5rem;
-  transform: translateY(670%);
-}
-.effect-dots-pane-2 {
-  position: absolute;
-  left: 5rem;
-  transform: translateY(-98.7rem);
-}
-.effect-triangle {
-  position: absolute;
-  top: 0;
-  right: 5rem;
-  transform: translateY(165.9rem);
-}
-.effect-dots-circle {
-  position: absolute;
-  right: 5rem;
-  transform: translateY(-65rem);
 }
 
 /*# sourceMappingURL=style.css.map */

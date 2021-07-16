@@ -12,7 +12,7 @@
   /* padding general */
   --padding-origin: 13.5rem;
   //  max screen 1039
-  --padding-max-1039: 12.7rem;
+  --padding-max-1039: 9.5rem;
   --padding-max-1023: 9rem;
   --padding-max-414: 5rem;
   --padding-max-375: 4rem;
@@ -204,11 +204,6 @@ body {
     height: 70rem;
     padding-left: var(--padding-origin);
     background-color: white;
-    // // curve at bottom
-    // -webkit-mask-image: url(./wave-mask.svg);
-    // mask-image: url(./wave-mask.svg);
-    // -webkit-mask-size: cover;
-    // mask-size: cover;
 
     // left
     &__left {
@@ -217,6 +212,7 @@ body {
       display: flex;
       flex-direction: column;
       justify-content: center;
+      z-index: 10;
     }
 
     &-hello {
@@ -763,6 +759,9 @@ body {
     align-items: center;
     padding: 0 var(--padding-origin) 2.4rem var(--padding-origin);
     @include textStyle(1.6rem, var(--ruby-color), 400);
+    // span{
+    //   max-width: 65%;
+    // }
     .cv-mode {
       display: flex;
       align-items: center;
@@ -775,23 +774,117 @@ body {
   }
 }
 
+// style effect
+.effect {
+  &-dots {
+    width: 17rem;
+    height: 18.8rem;
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    right: 10%;
+    top: 14rem;
+    & div {
+      background-color: white;
+      @include size(0.5rem);
+      border-radius: 50%;
+      margin-left: 29px;
+    }
+  }
+  &-lines {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translateY(140%);
+  }
+  &-dots-pane {
+    position: absolute;
+    top: 0;
+    right: 5rem;
+    transform: translateY(670%);
+  }
+
+  &-dots-pane-2 {
+    position: absolute;
+    left: 5rem;
+    transform: translateY(-98.7rem);
+  }
+
+  &-triangle {
+    position: absolute;
+    top: 0;
+    right: 5rem;
+    transform: translateY(165.9rem);
+  }
+
+  &-dots-circle {
+    position: absolute;
+    right: 5rem;
+    transform: translateY(-65rem);
+  }
+}
+
+// IPAD PRO
 @media screen and (max-width: 1039px) and (min-width: 1024px) {
   html,
   body {
     font-size: 61%;
   }
-  .cv-header .navbar {
+  .cv-header .header__left ul.navbar {
     justify-content: space-evenly;
+    margin-right: 2.5rem;
     li {
       margin-bottom: 0.5rem;
+      margin-left: 2.8rem;
     }
   }
+  .cv-introduce__right {
+    .circle {
+      transform: translate(-50%, -50%) scale(0.8);
+    }
+  }
+
+  .cv-works-list {
+    margin-left: -7rem;
+    .cv-works-item {
+      margin-left: 7rem;
+    }
+  }
+
   .cv-testimonial__left {
     padding: 0 5rem 0 0;
     justify-content: center;
   }
+
+  .effect {
+    &-dots {
+      width: 18rem;
+      height: 18.8rem;
+      top: 11rem;
+      transform: scale(0.9);
+    }
+    &-lines {
+      transform: translate(2rem, 140%) scale(0.8);
+    }
+    &-dots-pane {
+      transform: translateY(670%) scale(0.8);
+    }
+
+    &-dots-pane-2 {
+      transform: translateY(-101rem) scale(0.8);
+    }
+
+    &-triangle {
+      transform: translateY(165.9rem) scale(0.8);
+    }
+
+    &-dots-circle {
+      transform: translateY(-65rem) scale(0.8);
+    }
+  }
 }
 
+//IPAD
 @media screen and (max-width: 1023px) {
   body,
   html {
@@ -833,7 +926,7 @@ body {
 
   .cv-expertises-background-exp-content__project,
   .cv-expertises-background-edu-content__school {
-    max-width: 40rem;
+    max-width: 26rem;
   }
   .cv-works-list {
     justify-content: center;
@@ -856,12 +949,37 @@ body {
       @include size(3rem);
     }
   }
+
+    .effect {
+      &-lines {
+        transform: translate(2rem, 111%) scale(0.8);
+      }
+      &-dots-pane {
+        transform: translateY(670%) scale(0.8);
+      }
+
+      &-dots-pane-2 {
+        transform: translateY(-108rem) scale(0.8);
+      }
+
+      &-triangle {
+        transform: translateY(157.9rem) scale(0.8);
+      }
+
+      &-dots-circle {
+        transform: translateY(-65rem) scale(0.8);
+      }
+    }
 }
 
+//IPHONE 6 7 8 pro
 @media screen and (max-width: 414px) {
   .cv-header .header__left {
     .navbar {
       margin-left: 16rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
     }
   }
   .cv-aboutme__right {
@@ -890,92 +1008,63 @@ body {
     }
   }
 
-  .cv-testimonial{
+  .cv-testimonial {
     flex-direction: column-reverse;
-    &__right,&__left{
+    &__right,
+    &__left {
       width: auto;
     }
-    &__left{
+    &__left {
       max-width: unset;
       padding: 5rem 0 0 0;
       justify-content: start;
     }
   }
-  .cv-contact-card{
+  .cv-contact-card {
     height: 45rem;
     flex-direction: column;
     justify-content: unset;
     align-items: flex-start;
-    &-text{
+    &-text {
       margin-bottom: 3.5rem;
     }
-    &__left,&__right{
-      width:auto;
+    &__left,
+    &__right {
+      width: auto;
     }
-    &__right{
+    &__right {
       margin-top: 5rem;
+    }
+  }
+
+  .effect {
+    
+    &-lines {
+      transform: translate(3rem, 150%) scale(0.7);
+    }
+    &-dots-pane {
+      transform: translate(30%, 693%) scale(0.7);
+    }
+
+    &-triangle {
+      transform: translate(25%,200rem) scale(0.7);
+    }
+
+    &-dots-pane-2 {
+      transform: translate(-18%,-147.5rem) scale(0.7);
+    }
+
+    &-dots-circle {
+      transform: translate(30%,-87rem) scale(0.7);
     }
   }
 }
 
+// Iphone X,6,7,8
 @media screen and (max-width: 375px) {
   .cv-header .header__left {
     .navbar {
       margin-left: 12rem;
     }
-  }
-  
-}
-// style effect
-.effect {
-  div,
-  img {
-    z-index: -1;
-  }
-  &-dots {
-    position: absolute;
-    width: 17rem;
-    height: 18.8rem;
-    display: flex;
-    flex-wrap: wrap;
-    right: 10%;
-    top: 14rem;
-    & div {
-      background-color: white;
-      @include size(0.5rem);
-      border-radius: 50%;
-      margin-left: 29px;
-    }
-  }
-  &-lines {
-    position: absolute;
-    top: 0;
-    right: 0;
-    transform: translateY(140%);
-  }
-  &-dots-pane {
-    position: absolute;
-    top: 0;
-    right: 5rem;
-    transform: translateY(670%);
-  }
-
-  &-dots-pane-2 {
-    position: absolute;
-    left: 5rem;
-    transform: translateY(-98.7rem);
-  }
-
-  &-triangle {
-    position: absolute;
-    top: 0;
-    right: 5rem;
-    transform: translateY(165.9rem);
-  }
-
-  &-dots-circle {
-    position: absolute;
-    right: 5rem;
-    transform: translateY(-65rem);
   }
 }
