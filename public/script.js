@@ -1,52 +1,52 @@
-const coworkerComments = [
-  {
-    id: 0,
-    name: "Robert Downey Jr.",
-    job: "Super Hero",
-    comment: "I'm Genius, billionaire, playboy, philanthropist.",
-    avartarSrc: "./images/client-tony-stark.jpeg",
-    isActive: true,
-  },
-  {
-    id: 1,
-    name: "Christ Hemsworth",
-    job: "Super Hero",
-    comment: "I'm Thor. 🔨",
-    avartarSrc: "./images/client-chris-hemsworth.jpg",
-    isActive: false,
-  },
-  {
-    id: 2,
-    name: "Scarlet Johansson",
-    job: "Super Hero",
-    comment: "I'm Black Widow 🕵️‍♀️",
-    avartarSrc: "./images/client-scarlett.jpg",
-    isActive: false,
-  },
-  {
-    id: 3,
-    name: "Chris Patt",
-    job: "Super Hero",
-    comment: "I'm Star Lord 👨‍🚀",
-    avartarSrc: "./images/client-christ-patt.jpg",
-    isActive: false,
-  },
-  {
-    id: 4,
-    name: "Benedict Cumberbatch",
-    job: "Super Hero",
-    comment: "I'm Doctor. ...",
-    avartarSrc: "./images/client-benedict.jpg",
-    isActive: false,
-  },
-  {
-    id: 5,
-    name: "Mark Ruffalow",
-    job: "Super Hero",
-    comment: "Hulk hungry. Hulk smash 👊🏿👊🏿👊🏿",
-    avartarSrc: "./images/client-mark-ruffalow.jpg",
-    isActive: false,
-  }
+// const coworkerComments = [
+//   {
+//     id: 0,
+//     name: "Robert Downey Jr.",
+//     job: "Super Hero",
+//     comment: "I'm Genius, billionaire, playboy, philanthropist.",
+//     avartarSrc: "./images/client-tony-stark.jpeg",
+//     isActive: true,
+//   },
+//   {
+//     id: 1,
+//     name: "Christ Hemsworth",
+//     job: "Super Hero",
+//     comment: "I'm Thor. 🔨",
+//     avartarSrc: "./images/client-chris-hemsworth.jpg",
+//     isActive: false,
+//   },
+//   {
+//     id: 2,
+//     name: "Scarlet Johansson",
+//     job: "Super Hero",
+//     comment: "I'm Black Widow 🕵️‍♀️",
+//     avartarSrc: "./images/client-scarlett.jpg",
+//     isActive: false,
+//   },
+//   {
+//     id: 3,
+//     name: "Chris Patt",
+//     job: "Super Hero",
+//     comment: "I'm Star Lord 👨‍🚀",
+//     avartarSrc: "./images/client-christ-patt.jpg",
+//     isActive: false,
+//   },
+//   {
+//     id: 4,
+//     name: "Benedict Cumberbatch",
+//     job: "Super Hero",
+//     comment: "I'm Doctor. ...",
+//     avartarSrc: "./images/client-benedict.jpg",
+//     isActive: false,
+//   },
+//   {
+//     id: 5,
+//     name: "Mark Ruffalow",
+//     job: "Super Hero",
+//     comment: "Hulk hungry. Hulk smash 👊🏿👊🏿👊🏿",
+//     avartarSrc: "./images/client-mark-ruffalow.jpg",
+//     isActive: false,
+//   }
   // ,
   // {
   //   id: 6,
@@ -64,33 +64,33 @@ const coworkerComments = [
   //   avartarSrc: "./images/client-chadwich-boseman.jpg",
   //   isActive: false,
   // },
-];
+// ];
 
-(function testimonial() {
-  const avartarWrapper = document.querySelector(".cv-testimonial__left");
-  const commentWrapper = document.querySelector(".cv-testimonial-feedback");
-  const authorName = document.querySelector(".cv-testimonial-author__name");
-  const job = document.querySelector(".cv-testimonial-author__job");
-  coworkerComments.forEach((comment) => {
-    //append to left side
-    const image = document.createElement("img");
-    image.id = comment.id;
-    image.src = comment.avartarSrc;
-    image.alt = "avartar of client";
-    image.className = "cv-testimonial-avartar";
-    image.className += comment.isActive ? " active" : "";
-    avartarWrapper.appendChild(image);
+// (function testimonial() {
+//   const avartarWrapper = document.querySelector(".cv-testimonial__left");
+//   const commentWrapper = document.querySelector(".cv-testimonial-feedback");
+//   const authorName = document.querySelector(".cv-testimonial-author__name");
+//   const job = document.querySelector(".cv-testimonial-author__job");
+//   coworkerComments.forEach((comment) => {
+//     //append to left side
+//     const image = document.createElement("img");
+//     image.id = comment.id;
+//     image.src = comment.avartarSrc;
+//     image.alt = "avartar of client";
+//     image.className = "cv-testimonial-avartar";
+//     image.className += comment.isActive ? " active" : "";
+//     avartarWrapper.appendChild(image);
 
-    //append to right side
-    if (comment.isActive) {
-      commentWrapper.textContent = comment.comment;
-      authorName.textContent = comment.name;
-      job.textContent = comment.job;
-    }
-  });
-})();
+//     //append to right side
+//     if (comment.isActive) {
+//       commentWrapper.textContent = comment.comment;
+//       authorName.textContent = comment.name;
+//       job.textContent = comment.job;
+//     }
+//   });
+// })();
 
-const authorElements = document.querySelectorAll(".cv-testimonial-avartar");
+// const authorElements = document.querySelectorAll(".cv-testimonial-avartar");
 
 const navList = document.querySelectorAll(".navbar li");
 
@@ -189,17 +189,17 @@ const handleChooseAuthorBtn = (e) => {
   }
 };
 
-document
-  .getElementById("btn-prev")
-  .addEventListener("click", handleChooseAuthorBtn);
+// document
+//   .getElementById("btn-prev")
+//   .addEventListener("click", handleChooseAuthorBtn);
 
-document
-  .getElementById("btn-next")
-  .addEventListener("click", handleChooseAuthorBtn);
+// document
+//   .getElementById("btn-next")
+//   .addEventListener("click", handleChooseAuthorBtn);
 
-authorElements.forEach((ele) => {
-  ele.addEventListener("click", handleChooseAuthorBtn);
-});
+// authorElements.forEach((ele) => {
+//   ele.addEventListener("click", handleChooseAuthorBtn);
+// });
 
 // set skill effect
 
@@ -241,6 +241,16 @@ window.addEventListener("scroll", () => {
 document.getElementById("btn-scroll-up").addEventListener("click" , () => {
   scroll({
     top: 0,
+    behavior: "smooth",
+  });
+})
+
+document.querySelector(".cv-introduce-button").addEventListener('click', (e)=> {
+  e.preventDefault();
+  console.log('scroll');
+  const offSet = document.getElementById('works').offsetTop;
+  scroll({
+    top: offSet,
     behavior: "smooth",
   });
 })

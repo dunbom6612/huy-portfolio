@@ -277,6 +277,8 @@ body {
     display: flex;
     height: 70rem;
     padding-left: var(--padding-origin);
+    position: relative;
+    z-index: 0;
 
     // left
     &__left {
@@ -285,7 +287,18 @@ body {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      z-index: 10;
+      z-index: -1;
+    }
+
+    .cv-introduce-self-portrait {
+      position: absolute;
+      bottom: 7rem;
+      right: 30%;
+      width: 27rem;
+      height: 61.7rem;
+      object-fit: cover;
+      transform: translateX(50%);
+      z-index: 1;
     }
 
     &-hello {
@@ -325,6 +338,8 @@ body {
       @include button-common(transparent);
       border: 1px solid var(--ruby-color);
       margin-top: 3.7rem;
+      display: inline-flex;
+      text-decoration: none;
     }
 
     &-guide {
@@ -341,6 +356,7 @@ body {
       width: 30%;
       background-color: var(--ruby-color);
       position: relative;
+      z-index: 0;
       .circle {
         position: relative;
         @include size(38.3rem);
@@ -350,6 +366,7 @@ body {
         transform: translate(-50%, -50%);
         border-radius: 50%;
         box-sizing: border-box;
+        z-index: -1;
         &::before {
           content: "";
           @include size(5.7rem);
@@ -375,6 +392,7 @@ body {
           transform: translate(-12px, -12px) rotate(222deg);
         }
       }
+     
     }
   }
 
@@ -390,8 +408,8 @@ body {
     transform: translateY(-8.1rem);
 
     // wave at bottom
-    -webkit-mask-image: url(./rectangle.svg);
-    mask-image: url(./rectangle.svg);
+    -webkit-mask-image: url(./effects-image/rectangle.svg);
+    mask-image: url(./effects-image/rectangle.svg);
     -webkit-mask-size: cover;
     mask-size: cover;
     &__left {
@@ -482,6 +500,14 @@ body {
         border-radius: 50%;
         background-color: transparent;
         box-shadow: 0 0 0 1rem var(--light-green-dark-light-mode);
+      }
+      .cv-aboutme-self-potrait2 {
+        position: absolute;
+        bottom: 0;
+        left: 40%;
+        object-fit: cover;
+        width: 34.5rem;
+        height: 60rem;
       }
     }
     &__right {
@@ -750,7 +776,7 @@ body {
         border: 2px solid var(--ruby-color);
         opacity: 0.3;
         transition: opacity 0.8s ease;
-        &:hover{
+        &:hover {
           opacity: 0.5;
         }
         &.active {
@@ -915,7 +941,7 @@ body {
   @include size(5rem);
   position: fixed;
   bottom: 10%;
-  right: 1%;
+  right: 2rem;
   border-radius: 50%;
   background-color: var(--button-scroll-up-color);
   display: flex;
@@ -964,6 +990,7 @@ body {
     top: 0;
     right: 31%;
     transform: translateY(373%);
+    z-index: -1;
   }
   &-lines {
     position: absolute;
@@ -1012,9 +1039,15 @@ body {
       margin-left: 2.8rem;
     }
   }
-  .cv-introduce__right {
-    .circle {
-      transform: translate(-50%, -50%) scale(0.8);
+  .cv-introduce{
+
+    .cv-introduce__right {
+      .circle {
+        transform: translate(-50%, -50%) scale(0.8);
+      }
+    }
+     .cv-introduce-self-portrait {
+      bottom: 3rem;
     }
   }
 
@@ -1038,7 +1071,7 @@ body {
       transform: scale(0.9);
     }
     &-lines {
-      transform: translate(2rem, 140%) scale(0.8);
+      transform: translate(1.5rem, 140%) scale(0.8);
     }
     &-dots-pane {
       transform: translateY(670%) scale(0.8);
@@ -1049,7 +1082,7 @@ body {
     }
 
     &-triangle {
-      transform: translateY(165.9rem) scale(0.8);
+      transform: translateY(145.9rem) scale(0.8);
     }
 
     &-dots-circle {
@@ -1091,6 +1124,11 @@ body {
         max-width: 53rem;
       }
     }
+    .cv-introduce-self-portrait {
+      bottom: 0rem;
+      right:20%;
+      height: 70rem;
+    }
   }
   .cv-aboutme__right-story {
     p {
@@ -1127,7 +1165,8 @@ body {
 
   .effect {
     &-lines {
-      transform: translate(2rem, 111%) scale(0.8);
+      transform: translate(1.5rem, 111%) scale(0.8);
+      display: none;
     }
     &-dots-pane {
       transform: translateY(670%) scale(0.8);
@@ -1138,7 +1177,7 @@ body {
     }
 
     &-triangle {
-      transform: translateY(157.9rem) scale(0.8);
+      transform: translateY(140.9rem) scale(0.8);
     }
 
     &-dots-circle {
@@ -1156,6 +1195,9 @@ body {
       flex-direction: column;
       align-items: flex-end;
     }
+  }
+  .cv-introduce-self-portrait {
+    display: none;
   }
   .cv-introduce-role {
     margin-right: 0;
@@ -1221,14 +1263,14 @@ body {
 
   .effect {
     &-lines {
-      transform: translate(2rem, 150%) scale(0.7);
+      transform: translate(2.4rem, 150%) scale(0.7);
     }
     &-dots-pane {
       transform: translate(30%, 693%) scale(0.7);
     }
 
     &-triangle {
-      transform: translate(25%, 200rem) scale(0.7);
+      transform: translate(25%, 180rem) scale(0.7);
     }
 
     &-dots-pane-2 {

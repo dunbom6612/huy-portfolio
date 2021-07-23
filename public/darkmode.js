@@ -1,17 +1,17 @@
 const wraper = document.querySelector(".cv");
 
 // light
-const threeLinesPathLight = "./3-lines.svg";
-const linesPathLight = "./lines.svg";
-const dotPaneLight = "./dots-pane.svg";
-const triangleLight = "./triangle.svg";
-const dotsCircleLight = "./dots-circle.svg";
+const threeLinesPathLight = "./effects-image/3-lines.svg";
+const linesPathLight = "./effects-image/lines.svg";
+const dotPaneLight = "./effects-image/dots-pane.svg";
+const triangleLight = "./effects-image/triangle.svg";
+const dotsCircleLight = "./effects-image/dots-circle.svg";
 // dark
-const threeLinesPathDark = "./3-lines-dark.svg";
-const linesPathDark = "./lines-dark.svg";
-const dotPaneDark = "./dots-pane-dark.svg";
-const triangleDark = "./triangle-dark.svg";
-const dotsCircleDark = "./dots-circle-dark.svg";
+const threeLinesPathDark = "./effects-image/3-lines-dark.svg";
+const linesPathDark = "./effects-image/lines-dark.svg";
+const dotPaneDark = "./effects-image/dots-pane-dark.svg";
+const triangleDark = "./effects-image/triangle-dark.svg";
+const dotsCircleDark = "./effects-image/dots-circle-dark.svg";
 // icon sun moon
 const iconSun = "./icon/sun.svg";
 const iconMoon = "./icon/moon.svg";
