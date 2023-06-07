@@ -47,23 +47,23 @@
 //     avartarSrc: "./images/client-mark-ruffalow.jpg",
 //     isActive: false,
 //   }
-  // ,
-  // {
-  //   id: 6,
-  //   name: "Chris Evan",
-  //   job: "Super Hero",
-  //   comment: "Avenger!!!",
-  //   avartarSrc: "./images/client-chris-evan.jpg",
-  //   isActive: false,
-  // },
-  // {
-  //   id: 7,
-  //   name: "Chadwich Boseman",
-  //   job: "Super Hero",
-  //   comment: "Wakanda forever 🐈‍",
-  //   avartarSrc: "./images/client-chadwich-boseman.jpg",
-  //   isActive: false,
-  // },
+// ,
+// {
+//   id: 6,
+//   name: "Chris Evan",
+//   job: "Super Hero",
+//   comment: "Avenger!!!",
+//   avartarSrc: "./images/client-chris-evan.jpg",
+//   isActive: false,
+// },
+// {
+//   id: 7,
+//   name: "Chadwich Boseman",
+//   job: "Super Hero",
+//   comment: "Wakanda forever 🐈‍",
+//   avartarSrc: "./images/client-chadwich-boseman.jpg",
+//   isActive: false,
+// },
 // ];
 
 // (function testimonial() {
@@ -92,72 +92,72 @@
 
 // const authorElements = document.querySelectorAll(".cv-testimonial-avartar");
 
-const navList = document.querySelectorAll(".navbar li");
+const navList = document.querySelectorAll('.navbar li');
 
 const resetActive = () => {
   navList.forEach((list) => {
-    list.classList.remove("active");
+    list.classList.remove('active');
   });
 };
 
 const clickHandler = (e) => {
   e.preventDefault();
   const linkElement = e.target;
-  const href = e.target.getAttribute("href");
+  const href = e.target.getAttribute('href');
   resetActive();
-  linkElement.parentNode.classList.add("active");
+  linkElement.parentNode.classList.add('active');
   const offsetTop = document.querySelector(href).offsetTop;
 
   scroll({
     top: offsetTop,
-    behavior: "smooth",
+    behavior: 'smooth'
   });
 };
 
 navList.forEach((list) => {
-  list.querySelector("a").addEventListener("click", clickHandler);
+  list.querySelector('a').addEventListener('click', clickHandler);
 });
 
 // type writer effect
-const job = "Front End Developer.";
-let currentWord = "";
+const job = 'Front End Developer.';
+let currentWord = '';
 index = 0;
 (function typing() {
   currentWord = job.slice(0, index++);
-  document.querySelector(".cv-introduce-role").textContent = currentWord;
+  document.querySelector('.cv-introduce-role').textContent = currentWord;
   if (index <= job.length) {
     setTimeout(typing, 200);
   }
 })();
 
 const setNewActivedComment = (oldElement, newElement) => {
-  const feedbackElement = document.querySelector(".cv-testimonial-feedback");
-  const nameElement = document.querySelector(".cv-testimonial-author__name");
-  const jobElement = document.querySelector(".cv-testimonial-author__job");
+  const feedbackElement = document.querySelector('.cv-testimonial-feedback');
+  const nameElement = document.querySelector('.cv-testimonial-author__name');
+  const jobElement = document.querySelector('.cv-testimonial-author__job');
   // set avartar
-  oldElement.classList.remove("active");
+  oldElement.classList.remove('active');
 
   // set comment
   const newActivedCoworker = coworkerComments.find(
     (comment) => comment.id == newElement.id
   );
-  console.log("newActivedCoworker", newActivedCoworker);
+  console.log('newActivedCoworker', newActivedCoworker);
   feedbackElement.textContent = newActivedCoworker.comment;
   nameElement.textContent = newActivedCoworker.name;
   jobElement.textContent = newActivedCoworker.job;
 
-  newElement.classList.add("active");
+  newElement.classList.add('active');
 };
 
 // handle choose client comments event
 const handleChooseAuthorBtn = (e) => {
   e.stopPropagation();
-  const elementId = e.target.getAttribute("id");
+  const elementId = e.target.getAttribute('id');
   console.log(elementId);
   const currentActivedAuthor = Array.from(authorElements).find((avartar) => {
-    return avartar.classList.contains("active");
+    return avartar.classList.contains('active');
   });
-  if (elementId === "btn-prev") {
+  if (elementId === 'btn-prev') {
     console.log(currentActivedAuthor);
     let prevId = 0;
     // set avartar
@@ -169,7 +169,7 @@ const handleChooseAuthorBtn = (e) => {
 
       setNewActivedComment(currentActivedAuthor, newActivedAuthor);
     }
-  } else if (elementId === "btn-next") {
+  } else if (elementId === 'btn-next') {
     let nextId = 0;
     // set avartar
     if (currentActivedAuthor.id < coworkerComments.length - 1) {
@@ -204,16 +204,17 @@ const handleChooseAuthorBtn = (e) => {
 // set skill effect
 
 const resetSkill = () => {
-  document.querySelectorAll(".cv-expertises-skills-item").forEach((ele) => {
-    ele.querySelector(".cv-expertises-skills-bar-progress").style.width = "0%";
+  document.querySelectorAll('.cv-expertises-skills-item').forEach((ele) => {
+    ele.querySelector('.cv-expertises-skills-bar-progress').style.width = '0%';
   });
 };
 
 const setSkill = () => {
-  document.querySelectorAll(".cv-expertises-skills-item").forEach((ele) => {
-
-    const rates =  ele.querySelector(".cv-expertises-skills-item__rates").textContent;
-    ele.querySelector(".cv-expertises-skills-bar-progress").style.width = rates;
+  document.querySelectorAll('.cv-expertises-skills-item').forEach((ele) => {
+    const rates = ele.querySelector(
+      '.cv-expertises-skills-item__rates'
+    ).textContent;
+    ele.querySelector('.cv-expertises-skills-bar-progress').style.width = rates;
   });
 };
 
@@ -226,31 +227,45 @@ const scolledToElement = (ele) => {
   );
 };
 
+document.querySelector('.cv-works__button').addEventListener('click', (e) => {
+  e.preventDefault();
+  const isShowMore = e.target.classList.contains('showmore');
+  e.target.textContent = isShowMore ? 'Show more' : 'Show less';
+  e.target.classList.toggle('showmore');
+  document.querySelectorAll('.cv-works-item__extra').forEach((ele) => {
+    if (isShowMore) {
+      ele.classList.remove('showmore');
+      return;
+    }
+    ele.classList.add('showmore');
+  });
+});
 
-
-window.addEventListener("scroll", () => {
-  const skillAreas = document.querySelector(".cv-expertises-skills");
+window.addEventListener('scroll', () => {
+  const skillAreas = document.querySelector('.cv-expertises-skills');
 
   if (scolledToElement(skillAreas)) {
     setSkill();
-  }else{
+  } else {
     resetSkill();
   }
 });
 
-document.getElementById("btn-scroll-up").addEventListener("click" , () => {
+document.getElementById('btn-scroll-up').addEventListener('click', () => {
   scroll({
     top: 0,
-    behavior: "smooth",
+    behavior: 'smooth'
   });
-})
+});
 
-document.querySelector(".cv-introduce-button").addEventListener('click', (e)=> {
-  e.preventDefault();
-  console.log('scroll');
-  const offSet = document.getElementById('works').offsetTop;
-  scroll({
-    top: offSet,
-    behavior: "smooth",
+document
+  .querySelector('.cv-introduce-button')
+  .addEventListener('click', (e) => {
+    e.preventDefault();
+    console.log('scroll');
+    const offSet = document.getElementById('works').offsetTop;
+    scroll({
+      top: offSet,
+      behavior: 'smooth'
+    });
   });
-})
